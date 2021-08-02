@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"houzi5940.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Unity3D学习 - 第一章1、环境搭建进入官网：https:&#x2F;&#x2F;unity3d.com&#x2F;cn    (需要科学上网) 点击获取Unity，获取下载器 使用下载器下载Unity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity_第一章">
+<meta property="og:url" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/index.html">
+<meta property="og:site_name" content="猴子的博客">
+<meta property="og:description" content="Unity3D学习 - 第一章1、环境搭建进入官网：https:&#x2F;&#x2F;unity3d.com&#x2F;cn    (需要科学上网) 点击获取Unity，获取下载器 使用下载器下载Unity">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/菜单栏.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/工具栏.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/场景设计面板.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/游戏预览面板.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/项目资源列表.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/属性查看器a.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/属性查看器b.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/build_settings.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/Edit.jpg">
+<meta property="og:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/assets.jpg">
+<meta property="article:published_time" content="2021-07-31T03:17:31.000Z">
+<meta property="article:modified_time" content="2021-08-02T08:04:42.548Z">
+<meta property="article:author" content="猴子">
+<meta property="article:tag" content="Unity3D">
+<meta property="article:tag" content="知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/菜单栏.jpg">
+
+
+<link rel="canonical" href="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/","path":"2021/07/31/Unity3D学习笔记/Unity-第一章/","title":"Unity_第一章"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Unity_第一章 | 猴子的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">猴子的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity3D%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">Unity3D学习 - 第一章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">1、环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81Unity%E8%8F%9C%E5%8D%95%E6%A0%8F"><span class="nav-number">1.2.</span> <span class="nav-text">2、Unity菜单栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Unity%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="nav-number">1.3.</span> <span class="nav-text">3、Unity工具栏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81Unity%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1%E9%9D%A2%E6%9D%BF"><span class="nav-number">1.4.</span> <span class="nav-text">4、Unity场景设计面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E6%B8%B8%E6%88%8F%E9%A2%84%E8%A7%88%E9%9D%A2%E6%9D%BF"><span class="nav-number">1.5.</span> <span class="nav-text">5、游戏预览面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81Unity%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90%E5%88%97%E8%A1%A8"><span class="nav-number">1.6.</span> <span class="nav-text">6、Unity项目资源列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81Unity%E5%B1%9E%E6%80%A7%E6%9F%A5%E7%9C%8B%E5%99%A8"><span class="nav-number">1.7.</span> <span class="nav-text">7、Unity属性查看器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81%E8%8F%9C%E5%8D%95%E6%A0%8F%E7%9A%84%E5%85%B7%E4%BD%93%E5%86%85%E5%AE%B9"><span class="nav-number">1.8.</span> <span class="nav-text">8、菜单栏的具体内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89File-%E6%96%87%E4%BB%B6"><span class="nav-number">1.8.1.</span> <span class="nav-text">1）File 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89Edit-%E7%BC%96%E8%BE%91"><span class="nav-number">1.8.2.</span> <span class="nav-text">2）Edit 编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89Assets-%E8%B5%84%E6%BA%90"><span class="nav-number">1.8.3.</span> <span class="nav-text">3）Assets 资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89GameObject-%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.8.4.</span> <span class="nav-text">4）GameObject 游戏对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%89window%E7%AA%97%E5%8F%A3"><span class="nav-number">1.8.5.</span> <span class="nav-text">5）window窗口</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="猴子"
+      src="/images/houzi.jpg">
+  <p class="site-author-name" itemprop="name">猴子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/houzi5940" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;houzi5940" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/615420" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;615420" rel="noopener" target="_blank"><i class="fab fa-skype fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://houzi5940.github.io/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/houzi.jpg">
+      <meta itemprop="name" content="猴子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity_第一章
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-31 11:17:31" itemprop="dateCreated datePublished" datetime="2021-07-31T11:17:31+08:00">2021-07-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-02 16:04:42" itemprop="dateModified" datetime="2021-08-02T16:04:42+08:00">2021-08-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unity3D%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" itemprop="url" rel="index"><span itemprop="name">Unity3D学习资料</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Unity3D学习-第一章"><a href="#Unity3D学习-第一章" class="headerlink" title="Unity3D学习 - 第一章"></a>Unity3D学习 - 第一章</h1><h2 id="1、环境搭建"><a href="#1、环境搭建" class="headerlink" title="1、环境搭建"></a>1、环境搭建</h2><p>进入官网：<a target="_blank" rel="noopener" href="https://unity3d.com/cn">https://unity3d.com/cn</a>    (需要科学上网)</p>
+<p>点击获取Unity，获取下载器</p>
+<p>使用下载器下载Unity</p>
+<span id="more"></span>
+
+<h2 id="2、Unity菜单栏"><a href="#2、Unity菜单栏" class="headerlink" title="2、Unity菜单栏"></a>2、Unity菜单栏</h2><ul>
+<li>File (文件)菜单:打开和保存场景、项目以及创建游戏。</li>
+<li>Edit (编辑)菜单:普通的复制和粘贴功能，以及修改Unity部分属性的设置。</li>
+<li>Assets(资源)菜单:与资源创建、导入、导出以及同步相关的所有功能。</li>
+<li>GameObject (游戏对象)菜单:创建、显示游戏对象以及为其创建父子关系。</li>
+<li>Component (组件)菜单:为游戏对象添加新的组件或属性。</li>
+<li>Window(窗口)菜单:显示特定视图(例如，项目资源列表或游戏组成对象列表）。</li>
+<li>Help (帮助)菜单:包含到手册、社区论坛以及激活许可证的链接。</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/菜单栏.jpg" style="zoom:150%;">
+
+<h2 id="3、Unity工具栏"><a href="#3、Unity工具栏" class="headerlink" title="3、Unity工具栏"></a>3、Unity工具栏</h2><ul>
+<li>Trasem(交换 )工具：在场景设计面板中用来控制和操控对象。按照从左到右的次序，它们分别是Hand(移动)工具、Translate(平移)工具、Rotate (旋转)工具和Scale(缩放)工具。</li>
+<li>Transform Gizmo (变换Gizmo)切换：改变场景设计面板中Translate工具的工作方式。</li>
+<li>Play(播放) 控件：用来在编辑器内开始或暂停游戏的测试。</li>
+<li>Layers (分层)下拉列表:控制任何给定时刻在场景设计面板中显示哪些特定的对象。</li>
+<li>Layout (布局)下拉列表:改变窗口和视图的布局，并且可以保存所创建的任意自定义布局。</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/工具栏.jpg" style="zoom:150%;">
+
+<h2 id="4、Unity场景设计面板"><a href="#4、Unity场景设计面板" class="headerlink" title="4、Unity场景设计面板"></a>4、Unity场景设计面板</h2><p>场景设计面板还包含一个名为Persp 的特殊工具，这一特殊工具可以开发人员迅速地切换观察场景的角度。单击Persp的每个箭头都会改变观察场景的角度，使其沿着个不同的正交或是维方向变换， 还可以通过快建对场景进行操作。</p>
+<ul>
+<li>Tumble (旋转，Alt+鼠标左键): 摄像机会以任意轴为中心进行旋转，从而旋转视图。</li>
+<li>Track (移动，Alt+鼠标中键);在场景中把摄像机向左、向右、向上和向下移动。</li>
+<li>Zoom(缩放，Alt+ 鼠标右键或是鼠标滑轮):在场景中缩小或放大摄像机视角。</li>
+<li>Center(居中，选择游戏对象并按F键):摄像机会放大并把选中的对象居中显示在视野中。鼠标光标必须位于场景设计面板中，而不是在游戏组成对象列表中的对象上方</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/场景设计面板.jpg" alt="场景设计面板">
+
+<h2 id="5、游戏预览面板"><a href="#5、游戏预览面板" class="headerlink" title="5、游戏预览面板"></a>5、游戏预览面板</h2><p>游戏预览面板<br>默认的Tall布局中，游戏预览面板位于Scene标签旁边的标签上。在这里，游成如同最后创建并发布时一样进行渲染。可以在任何时候使用这个视图在编辑器内测试或试玩游戏。测试游戏时，可以选择按下工具栏上的播放控件中的各个按钮，实现相关的操作。</p>
+<ul>
+<li><p>Free Aspect：任意显示比例下拉列表，可以选择不同分辨率或不同比例的游戏预览窗口大小。</p>
+</li>
+<li><p>Maximize on Play：最大化，在单击播放按钮后游戏预览窗口变为最大化。</p>
+</li>
+<li><p>Stats：渲染数据，显示出游戏运行过程中的各方面的渲染数据。</p>
+</li>
+<li><p>Gizmos：Gizmos切换，该按钮可以切换游戏中绘制和渲染的所有工具。</p>
+</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/游戏预览面板.jpg" alt="游戏预览面板">
+
+<h2 id="6、Unity项目资源列表"><a href="#6、Unity项目资源列表" class="headerlink" title="6、Unity项目资源列表"></a>6、Unity项目资源列表</h2><p>1.3.6 Unity 项目资源列表<br>项目资源列表中列出了项目中的所有文件，包括脚本、贴图、模型、场景等文件，并且这些文件都组织到一个Assets (资源)文件夹中。Assets 文件夹包含创建或导入的所有文件资源，项目资源列表显示了Assets 文件夹下的所有文件资源。</p>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/项目资源列表.jpg" alt="项目资源列表">
+
+<h2 id="7、Unity属性查看器"><a href="#7、Unity属性查看器" class="headerlink" title="7、Unity属性查看器"></a>7、Unity属性查看器</h2><p>属性查看器显示了游戏中每个游戏对象所包含的所有组件的详细属性。单击Plane对象，其所有组件的详细属性就会显示在属性查看器中，如图 a 所示。这些组件是按照添加的先后顺序进行排列的，在某个组件上面单击鼠标右键，在弹出的列表中根据选项对组件属性进行修改，如图 b 所示。</p>
+<p>属性查看器中一般包含很多属性信息。这些属性乍看上去让人无所适从，但是，每个对象对应的所有属性查看器都遵循一些基 本原则。在属性查看器的顶端是这个对象的名称，然后是该对象各个方面的一个列表，例如，Transform (变换)组件和Mesh Collider(网格碰撞体)组件。</p>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/属性查看器a.jpg" alt="属性查看器">
+
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/属性查看器b.jpg" alt="改变组件位置参数">
+
+<h2 id="8、菜单栏的具体内容"><a href="#8、菜单栏的具体内容" class="headerlink" title="8、菜单栏的具体内容"></a>8、菜单栏的具体内容</h2><h3 id="1）File-文件"><a href="#1）File-文件" class="headerlink" title="1）File 文件"></a>1）File 文件</h3><ul>
+<li>New Scene<br>“New Scene”菜单功能为新建场景，即新建一个游戏场景，每一一个新创建的游戏场景包含了一个Main Camera (主摄像机)和一个 Directional Light (平行光光源 )。</li>
+<li>Open Scene<br>“Open Scene”菜单功能为打开场景，即打开以前所保存的场景，当单击Open Scene后，会弹出一个Load Scene对话框，选择所要打开的场景文件(后缀为“unity” 的文件)即可。</li>
+<li>Save Scene<br>“Save Scene”菜单功能为保存场景，即保存当前所搭建的场景。如果是第一次保存当前场景，会弹出一个Save Scene对话框，在文件名处输人文件名称，单击保存即可，否则直接保存当前场景。</li>
+<li>Build Settings<br>“Build Settings”菜单功能为发布设置，即在发布游戏前，一些准备工作的设置。当单击菜单Build Settings,就会立刻弹出Build Settings对话框。在Platform下选择该项目发布后所要运行的平台，同时可以单击“Player Setting”按钮，在Inspector面板中修改参数。</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/build_settings.jpg" alt="file">
+
+<h3 id="2）Edit-编辑"><a href="#2）Edit-编辑" class="headerlink" title="2）Edit 编辑"></a>2）Edit 编辑</h3><ul>
+<li>Frame Selected<br>“Frame Selected” 菜单功能为居中并最大化显示当前选中的物体，即若要在场景设计面板中近距离观察所选中的GameObject,便可单击Frame selected 菜单，快捷键为F，可以方便地切换观察视角。</li>
+<li>Preferences<br>“Preferences”菜单功能为偏好设置，即对Unity 集成开发环境的相应参数进行设置。当单击Preferences菜单后，会立刻弹出一个Unity Preferences对话框，在该对话框可进行属性的相关设置。</li>
+<li>Project Settings<br>“Project Settings” 菜单功能为工程设置，即对工程进行相应的设置。当选中菜单ProjectSettings,就会弹出其子菜单，其选项是对工程的具体设置。</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/Edit.jpg" alt="Edit">
+
+<h3 id="3）Assets-资源"><a href="#3）Assets-资源" class="headerlink" title="3）Assets 资源"></a>3）Assets 资源</h3><ul>
+<li>Create<br>Create 菜单的功能为创建Unity内置的资源，其子菜单为Unity内置的各个资源。所创建的任何资源都会出现在项目资源列表中。</li>
+<li>Show in Explorer<br>Show in Explorer”菜单的功能为在资源管理器中显示资源文件。</li>
+<li>Import Package<br>Import Package”菜单的功能为导人工程所需要的Unity资源包。单击”Import Package”菜单下属的“Custom Package”子菜单就会弹出Import Package对话框，找资源导人即可。</li>
+<li>Export Package<br>“Expor Package” 菜单的功能为将所需要的资源导出资源包。选中需要导出的资源文件，单<br>击“Export Package”菜单即可导出资源包。</li>
+</ul>
+<img src="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/assets.jpg" alt="Assets">
+
+<h3 id="4）GameObject-游戏对象"><a href="#4）GameObject-游戏对象" class="headerlink" title="4）GameObject 游戏对象"></a>4）GameObject 游戏对象</h3><ul>
+<li>Create Empty<br>“Create Empty”为创建空游戏对象，空游戏对象就是不带由任何组件的游戏对象。当点击菜单”Create Empty“，或按下快捷键Ctrl+Shift+N 就会在场景中创建一个空游戏对象</li>
+<li>3D Object<br>留“3DObject”下属的子菜单的功能是创建3D游戏对象。其下属的子菜单分别为Cube、Sphere、Capsule、Cylinder、Plane 、Quad、Ragdoll、Terrain、 Tree 、Wind Zone和3DText。</li>
+<li>Light<br>“Light”下属的子菜单的功能是创建光源对象。其下属的子菜单分别为Directional Ligth、PointLigth、SpotLigth、 Area Light、Reflection Probe和Light Probe Group。</li>
+<li>Audio<br>“Audio”下属的子菜单的功能是创建与声音有关的游戏组件。其下属的子菜单分别为AudioSource和Audio Reverb Zone, Audio Source菜单的功能为创建声音源。</li>
+<li>UI<br>“UI”下属的子菜单的功能是创建与搭建UI界面有关的游戏对象。其下属的子菜单分别为Panel、Button、 Text、Image、Raw Image、Slider 、Scrollbar、 Toggle、Input Field、Canvas和EventSystem等。</li>
+</ul>
+<h3 id="5）window窗口"><a href="#5）window窗口" class="headerlink" title="5）window窗口"></a>5）window窗口</h3><ul>
+<li>Next Window<br>“Next Window”菜单的功能为将当前的视图转换到下一个窗口。 当单击菜单Next Window 时，当前的视图会自动切换到下一个窗口，实现在不同的窗口视角下观察同-物体，有助于修改。</li>
+<li>Animation<br>“Animation”菜单的功能为打开动画设计面板。当单击菜单“Animatin”，或是按快捷键Crl+6时，即可打开动画设计面板。在此将不对动画的具体设计做详细说明，后面的章节将做详细的讲解。</li>
+<li>Profiler<br>“Profiler”” 菜单的功能为对Unity 开发环境中各个功能选项的使用情况以及CPU的利用率进行检查。</li>
+<li>Lighting<br>“Ligtin” 菜单的功能为打开光照设置面板。当单击菜单”Lighing, 即可打开光照设置面板。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>爷很可爱，所以给我钱</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="猴子 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="猴子 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Unity3D/" rel="tag"># Unity3D</a>
+              <a href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag"># 知识</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86%E4%B8%8E%E9%80%89%E6%8B%A9/" rel="prev" title="计算机硬件知识与选择">
+                  <i class="fa fa-chevron-left"></i> 计算机硬件知识与选择
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猴子</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
