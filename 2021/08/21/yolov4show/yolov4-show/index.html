@@ -20,23 +20,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"houzi5940.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="猴子的博客">
-<meta property="og:url" content="https://houzi5940.github.io/tags/%E5%AD%A6%E4%B9%A0/page/2/index.html">
+<meta name="description" content="yolov4软件效果演示1.启动程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yolov4_show">
+<meta property="og:url" content="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/index.html">
 <meta property="og:site_name" content="猴子的博客">
+<meta property="og:description" content="yolov4软件效果演示1.启动程序">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/showGUI.png">
+<meta property="og:image" content="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/图片.png">
+<meta property="og:image" content="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/视频.png">
+<meta property="og:image" content="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/实时检测.png">
+<meta property="article:published_time" content="2021-08-21T10:20:41.000Z">
+<meta property="article:modified_time" content="2021-08-21T13:22:40.960Z">
 <meta property="article:author" content="猴子">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="图像识别">
+<meta property="article:tag" content="yolov4">
+<meta property="article:tag" content="jetson nano">
+<meta property="article:tag" content="GUI">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/showGUI.png">
 
 
-<link rel="canonical" href="https://houzi5940.github.io/tags/%E5%AD%A6%E4%B9%A0/page/2/">
+<link rel="canonical" href="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/学习/page/2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/","path":"2021/08/21/yolov4show/yolov4-show/","title":"yolov4_show"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: 学习 | 猴子的博客</title>
+<title>yolov4_show | 猴子的博客</title>
   
 
 
@@ -101,7 +115,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -114,6 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#yolov4%E8%BD%AF%E4%BB%B6%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA"><span class="nav-number">1.</span> <span class="nav-text">yolov4软件效果演示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.1.</span> <span class="nav-text">1.启动程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%A3%80%E6%B5%8B%E6%95%88%E6%9E%9C"><span class="nav-number">1.2.</span> <span class="nav-text">2.检测效果</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,193 +195,129 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">学习
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://houzi5940.github.io/2021/08/21/yolov4show/yolov4-show/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/houzi.jpg">
+      <meta itemprop="name" content="猴子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          yolov4_show
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-08-21 18:20:41 / 修改时间：21:22:40" itemprop="dateCreated datePublished" datetime="2021-08-21T18:20:41+08:00">2021-08-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/yolo%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">yolo系列</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="yolov4软件效果演示"><a href="#yolov4软件效果演示" class="headerlink" title="yolov4软件效果演示"></a>yolov4软件效果演示</h1><h2 id="1-启动程序"><a href="#1-启动程序" class="headerlink" title="1.启动程序"></a>1.启动程序</h2><img src="/2021/08/21/yolov4show/yolov4-show/showGUI.png">
+
+<span id="more"></span>
+
+<h2 id="2-检测效果"><a href="#2-检测效果" class="headerlink" title="2.检测效果"></a>2.检测效果</h2><p>图片检测</p>
+<img src="/2021/08/21/yolov4show/yolov4-show/图片.png">
+
+<p>视频检测</p>
+<img src="/2021/08/21/yolov4show/yolov4-show/视频.png">
+
+<p>实时检测</p>
+<img src="/2021/08/21/yolov4show/yolov4-show/实时检测.png">
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:49:44+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>爷很可爱，所以给我钱</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="猴子 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="猴子 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/8_Django_ORM%E6%A1%86%E6%9E%B6/" itemprop="url">
-            <span itemprop="name">8_djangoORM框架</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:48:45+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/7_Django_%E6%A8%A1%E5%9E%8B%E5%B1%82/" itemprop="url">
-            <span itemprop="name">7_django - 模型层</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:47:56+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/6_Django_%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/" itemprop="url">
-            <span itemprop="name">6_django - 静态文件</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:46:27+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/5_Django_%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%A8%A1%E6%9D%BF%E5%B1%82/" itemprop="url">
-            <span itemprop="name">5_django - 设计模式与模板层</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:45:27+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/4_Django_GET%E4%B8%8EPOST%E8%AF%B7%E6%B1%82/" itemprop="url">
-            <span itemprop="name">4_django - GET与POST请求</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:44:31+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/3_Django_%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/" itemprop="url">
-            <span itemprop="name">3_django - 请求与响应</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:42:47+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/2_Django_%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">2_django - 路由配置</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-28T17:40:42+08:00"
-              content="2021-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/28/Django/1_Django/" itemprop="url">
-            <span itemprop="name">1_Django</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/%E5%AD%A6%E4%B9%A0/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/%E5%AD%A6%E4%B9%A0/">1</a><span class="page-number current">2</span>
-  </nav>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/" rel="tag"># 图像识别</a>
+              <a href="/tags/yolov4/" rel="tag"># yolov4</a>
+              <a href="/tags/jetson-nano/" rel="tag"># jetson nano</a>
+              <a href="/tags/GUI/" rel="tag"># GUI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/21/yolov3show/yolov3-show/" rel="prev" title="yolov3_show">
+                  <i class="fa fa-chevron-left"></i> yolov3_show
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 
 </div>
   </main>
