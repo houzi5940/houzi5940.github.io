@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"houzi5940.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Unity3D学习 - 第二章1、Unity脚本Unity中的脚本分为不同的方法，不同力法在特定的情况下被回调以实现特定的功能如果想要脚本程序起作用，实现的主要途径是将脚本阳到特定的游 必对象中。下面是最常用的几个回调方法。  Start方法。 这个方法在游戏场景加载时调用，在该方法内可以写些游戏场景初始化之类的代码。 Update 方法。这个方法会在每一帧宣染之前调用， 大部分游戏代码在这里执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity-第二章">
+<meta property="og:url" content="https://houzi5940.github.io/2021/08/02/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
+<meta property="og:site_name" content="猴子的博客">
+<meta property="og:description" content="Unity3D学习 - 第二章1、Unity脚本Unity中的脚本分为不同的方法，不同力法在特定的情况下被回调以实现特定的功能如果想要脚本程序起作用，实现的主要途径是将脚本阳到特定的游 必对象中。下面是最常用的几个回调方法。  Start方法。 这个方法在游戏场景加载时调用，在该方法内可以写些游戏场景初始化之类的代码。 Update 方法。这个方法会在每一帧宣染之前调用， 大部分游戏代码在这里执行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-02T08:23:37.000Z">
+<meta property="article:modified_time" content="2021-08-04T06:36:20.019Z">
+<meta property="article:author" content="猴子">
+<meta property="article:tag" content="Unity3D">
+<meta property="article:tag" content="知识">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://houzi5940.github.io/2021/08/02/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://houzi5940.github.io/2021/08/02/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%BA%8C%E7%AB%A0/","path":"2021/08/02/Unity3D学习笔记/Unity-第二章/","title":"Unity-第二章"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Unity-第二章 | 猴子的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">猴子的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity3D%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">Unity3D学习 - 第二章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81Unity%E8%84%9A%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text">1、Unity脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81C-%E8%84%9A%E6%9C%AC%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">2、C#脚本的注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89MonoBehaviour%E7%B1%BB"><span class="nav-number">1.2.1.</span> <span class="nav-text">1）MonoBehaviour类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89%E4%BD%BF%E7%94%A8-Awake-%E6%88%96-Start-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">2）使用 Awake 或 Start 初始化函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89%E7%B1%BB%E5%90%8D%E5%AD%97%E5%BF%85%E9%A1%BB%E5%8C%B9%E9%85%8D%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-number">1.2.3.</span> <span class="nav-text">3）类名字必须匹配文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89Unity-%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E6%9C%89%E4%B8%8D%E5%90%8C%E7%9A%84%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-number">1.2.4.</span> <span class="nav-text">4）Unity 脚本中协同程序有不同的语法规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Unity%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">3、Unity脚本的基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89%E4%BD%8D%E7%A7%BB%E4%B8%8E%E6%97%8B%E8%BD%AC"><span class="nav-number">1.3.1.</span> <span class="nav-text">1）位移与旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89%E8%AE%B0%E5%BD%95%E6%97%B6%E9%97%B4"><span class="nav-number">1.3.2.</span> <span class="nav-text">2）记录时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89%E8%AE%BF%E9%97%AE%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E7%BB%84%E4%BB%B6"><span class="nav-number">1.3.3.</span> <span class="nav-text">3）访问游戏对象组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89%E8%AE%BF%E9%97%AE%E5%85%B6%E4%BB%96%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.4.</span> <span class="nav-text">4）访问其他游戏对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%80%9A%E8%BF%87%E5%B1%9E%E6%80%A7%E6%9F%A5%E7%9C%8B%E5%99%A8%E6%8C%87%E5%AE%9A%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">1.通过属性查看器指定参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%82%E6%AC%A1%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">2.确定对象的层次关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%80%9A%E8%BF%87%E5%90%8D%E5%AD%97%E6%88%96%E6%A0%87%E7%AD%BE%E8%8E%B7%E5%8F%96%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">3.通过名字或标签获取游戏对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E9%80%9A%E8%BF%87%E7%BB%84%E4%BB%B6%E5%90%8D%E7%A7%B0%E8%8E%B7%E5%8F%96%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.4.4.</span> <span class="nav-text">4、通过组件名称获取游戏对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%90%91%E9%87%8F"><span class="nav-number">1.4.</span> <span class="nav-text">4、向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.5.</span> <span class="nav-text">5、游戏中实例化对象</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="猴子"
+      src="/images/houzi.jpg">
+  <p class="site-author-name" itemprop="name">猴子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/houzi5940" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;houzi5940" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/615420" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;615420" rel="noopener" target="_blank"><i class="fab fa-skype fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://houzi5940.github.io/2021/08/02/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/houzi.jpg">
+      <meta itemprop="name" content="猴子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猴子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity-第二章
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-02 16:23:37" itemprop="dateCreated datePublished" datetime="2021-08-02T16:23:37+08:00">2021-08-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-04 14:36:20" itemprop="dateModified" datetime="2021-08-04T14:36:20+08:00">2021-08-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unity3D%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" itemprop="url" rel="index"><span itemprop="name">Unity3D学习资料</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Unity3D学习-第二章"><a href="#Unity3D学习-第二章" class="headerlink" title="Unity3D学习 - 第二章"></a>Unity3D学习 - 第二章</h1><h2 id="1、Unity脚本"><a href="#1、Unity脚本" class="headerlink" title="1、Unity脚本"></a>1、Unity脚本</h2><p>Unity中的脚本分为不同的方法，不同力法在特定的情况下被回调以实现特定的功能如果想要脚本程序起作用，实现的主要途径是将脚本阳到特定的游 必对象中。下面是最常用的几个回调方法。</p>
+<ul>
+<li>Start方法。 这个方法在游戏场景加载时调用，在该方法内可以写些游戏场景初始化之类的代码。</li>
+<li>Update 方法。这个方法会在每一帧宣染之前调用， 大部分游戏代码在这里执行，除了物理部分的代码。</li>
+<li>FixedUpdate 方法。此方法会每隔固定的时间间隔系统调用，这里也是基本物理行为代码执行的地方。</li>
+</ul>
+<p>除了以上几种回调方法以外，Unity 还提供了-此其他的具有特定作用的回调方法。并且在有需要的情况下，还可以重写一些处理特定事件的回调方法，这类方法般以On前缀开头，如 OnCollisionEnter 方法(此方法在系统检测到碰撞开始时被回调)等。并且其实上述的方法与代码在开发中般都是位于 MonoBehaviour 类的子类中的，也就是说开发脚本代码时，主要是继承 MonoBehaviour 类并重写其中特定的方法。这个在后边会进行相对应的介绍。</p>
+<span id="more"></span>
+
+<h2 id="2、C-脚本的注意事项"><a href="#2、C-脚本的注意事项" class="headerlink" title="2、C#脚本的注意事项"></a>2、C#脚本的注意事项</h2><h3 id="1）MonoBehaviour类"><a href="#1）MonoBehaviour类" class="headerlink" title="1）MonoBehaviour类"></a>1）MonoBehaviour类</h3><p>所有挂载到游戏的脚本中包含的类都要继承 MonoBehaviour  类（直接或间接）。通过 Asset → Create → C# Script 创建脚本，系统模板已经包含了必要的定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class BNUScript : MonoBehaviour&#123; ... &#125;	//继承MonoBehaviour类</span><br></pre></td></tr></table></figure>
+
+<h3 id="2）使用-Awake-或-Start-初始化函数"><a href="#2）使用-Awake-或-Start-初始化函数" class="headerlink" title="2）使用 Awake 或 Start 初始化函数"></a>2）使用 Awake 或 Start 初始化函数</h3><p>C#中用于初始化脚本的代码必须置于Awke或Sart方法中。Awake和Start的不同之处在于，Awake方法是在加载场景时运行，Start 方法是在第一次调用Update或FixedUpdate方法之前调用，Awake方法在所有Start方法之前运行。</p>
+<h3 id="3）类名字必须匹配文件名"><a href="#3）类名字必须匹配文件名" class="headerlink" title="3）类名字必须匹配文件名"></a>3）类名字必须匹配文件名</h3><p>C#脚本中类名需要手动编写，而且类名还必须和文件名相同，否则当脚本挂载到游戏对象时，控制台会报错。</p>
+<h3 id="4）Unity-脚本中协同程序有不同的语法规则"><a href="#4）Unity-脚本中协同程序有不同的语法规则" class="headerlink" title="4）Unity 脚本中协同程序有不同的语法规则"></a>4）Unity 脚本中协同程序有不同的语法规则</h3><p>Unity脚本中协同程序(Coroutines )必须是IEnumerator返回类型，并且yield用yield return<br>拳代。具体可以使用如下的C#代码片段来实现。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUScript : MonoBehaviour&#123;</span><br><span class="line">	IEnumerator SomeCoroutine()&#123;	//C#协同程序</span><br><span class="line">		yield return 0;	//等待1帧</span><br><span class="line">		yield return new WaitForSeconds(2);	//等待2秒</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、Unity脚本的基础语法"><a href="#3、Unity脚本的基础语法" class="headerlink" title="3、Unity脚本的基础语法"></a>3、Unity脚本的基础语法</h2><h3 id="1）位移与旋转"><a href="#1）位移与旋转" class="headerlink" title="1）位移与旋转"></a>1）位移与旋转</h3><p>游戏对象的主要两大属性：</p>
+<p>Transform（变换属性）</p>
+<p>Rigidbody（刚体属性）</p>
+<p>旋转：</p>
+<p>通过Transform.Rotate()方法实现</p>
+<ol>
+<li><p>创建对象——单击 GameObject → 3D Object → Cube，创造一个立方体</p>
+</li>
+<li><p>编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为BNUTrans</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUTransR : MonoBehaviour&#123;</span><br><span class="line">	void Update()&#123;</span><br><span class="line">		this.transform.Rotate(2,0,0);	//绕X轴每帧旋转 2度</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>将脚本挂载到对象上</p>
+</li>
+</ol>
+<p>位移：</p>
+<p>通过Transform.Translate()方法实现</p>
+<p>流程与旋转一样</p>
+<p>脚本内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUTransR : MonoBehaviour&#123;</span><br><span class="line">	void Update()&#123;</span><br><span class="line">		this.transform.Translate(0,0,1);	//延 Z轴每帧移动一个单位长度</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2）记录时间"><a href="#2）记录时间" class="headerlink" title="2）记录时间"></a>2）记录时间</h3><p>记录时间需要用到Time类，其中比较重要的变量为 deltaTime 。它指的是从最近一次调用Update或者FixedUpdate 方法当现在的时间。如果想均匀的旋转一个物体，不考虑帧速率的情况下，可以乘以Time.deltaTime</p>
+<p>使用</p>
+<p>创建脚本 BNUTime</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//使物体绕X轴匀速旋转</span><br><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUTransR : MonoBehaviour&#123;</span><br><span class="line">	void Update()&#123;</span><br><span class="line">		this.transform.Rotate(10 * Time.deltaTime,0,0);	//绕X轴匀速旋转</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果涉及<strong>刚体</strong>，可以写在 FixedUpdate 方法，在 FixedUpdate 方法里面如果想每秒增加或减少一个值，需要乘以Time.fixedDeltaTime</p>
+<p>在Cuba查看相关属性，点击Add Component 为其添加Rigidbody属性，并将Use Gravity勾去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class BNUFUpdate : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    public GameObject gameObject;</span><br><span class="line">    void FixedUpdate()</span><br><span class="line">    &#123;</span><br><span class="line">        Vector3 te = gameObject.GetComponent&lt;Rigidbody&gt;().transform.position; //获取刚体位置坐标</span><br><span class="line">        te.y += 5 * Time.fixedDeltaTime;    //刚体延Y轴每秒上升5个单位长度</span><br><span class="line">        gameObject.GetComponent&lt;Rigidbody&gt;().transform.position = te;   //设置刚体的位置坐标</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将脚本挂在到摄像机上，将摄像机属性中的脚本内的GameObject设置为Cube</p>
+<h3 id="3）访问游戏对象组件"><a href="#3）访问游戏对象组件" class="headerlink" title="3）访问游戏对象组件"></a>3）访问游戏对象组件</h3><p>组件（Compoment）是用来绑定到游戏对象（Game Object）上的一组相关属性。本质上每个组件时一个类的实例。常见的组件有 MeshFilter，MeshCollider，Renderer，Animation</p>
+<p>常见的组件可以通过简单的成员变量取得，常见的成员变量有</p>
+<table>
+<thead>
+<tr>
+<th>组件名称</th>
+<th>变量名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Transform</td>
+<td>transform</td>
+</tr>
+<tr>
+<td>Renderer</td>
+<td>renderer</td>
+</tr>
+<tr>
+<td>Light</td>
+<td>Light（只在光源对象有效）</td>
+</tr>
+<tr>
+<td>Collider</td>
+<td>collider</td>
+</tr>
+<tr>
+<td>Rigidbody</td>
+<td>rigidbody</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>Camera（只在摄像机对象有效）</td>
+</tr>
+<tr>
+<td>Animation</td>
+<td>animation</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<p>使用 GetComponent 方法将组将附加到游戏对象上，使游戏对象沿X轴正方向移动</p>
+<ol>
+<li><p>创建对象——单击 GameObject → 3D Object → Cube，创造一个立方体</p>
+</li>
+<li><p>编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为BNUComponent</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//使游戏对象沿X轴正方向移动</span><br><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUComponent : MonoBehaviour&#123;</span><br><span class="line">	void Update()&#123;</span><br><span class="line">		transform.Translate(1,0,0);	//绕X轴移动一个单位，通过获取Translate组件的方法</span><br><span class="line">		Getcomponent&lt;Transform&gt;().Translate(1,0,0);	//绕X轴移动一个单位,使用 GetComponent 方法将组将附加到游戏对象上</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="4）访问其他游戏对象"><a href="#4）访问其他游戏对象" class="headerlink" title="4）访问其他游戏对象"></a>4）访问其他游戏对象</h3><h4 id="1-通过属性查看器指定参数"><a href="#1-通过属性查看器指定参数" class="headerlink" title="1.通过属性查看器指定参数"></a>1.通过属性查看器指定参数</h4><p>创建两个Cube，通过Cube1上的脚本访问Cube2上的脚本。</p>
+<p>​    创建对象——单击 GameObject → 3D Object → Cube，创造两个立方体，Cube1，Cube2</p>
+<p>​    编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为BNUOthobj</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUComponent : MonoBehaviour&#123;</span><br><span class="line">	</span><br><span class="line">	pubilc GameObject otherObject;</span><br><span class="line">	</span><br><span class="line">	void Update()&#123;</span><br><span class="line">	</span><br><span class="line">		Test test = otherObject.GetComponent&lt;Test&gt;();	//获取Test组件</span><br><span class="line">		test.doSomething();	//执行doSomething方法</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将此脚本挂载到Cube1上</p>
+<p>​    编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为Test</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUComponent : MonoBehaviour&#123;</span><br><span class="line">	void Update()&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	public void doSomething()&#123;</span><br><span class="line">		this.transform.Rotate(1,0,0);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-确定对象的层次关系"><a href="#2-确定对象的层次关系" class="headerlink" title="2.确定对象的层次关系"></a>2.确定对象的层次关系</h4><p>创建三个父子关系的游戏对象Capsule，Sphere，Cube，通过Sphere上的脚本访问子对象Cube和父对象Capsule，使其旋转</p>
+<p>​    创建对象——单击 GameObject → 3D Object → Capsule，<br>​    单击 GameObject → 3D Object → Sphere，<br>​    单击 GameObject → 3D Object → Cube，<br>将Cube拖拽到Sphere上作为子对象，将Sphere拖拽到Capsule作为子对象</p>
+<p>​    编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为BNUPrachild</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUPrachild : MonoBehaviour&#123;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        this.transform.Find(&quot;Cube&quot;).Rotate(1, 0, 0);   //找到子对象Cube，使其按x轴旋转</span><br><span class="line">        </span><br><span class="line">        this.transform.parent.Rotate(1, 0, 0);  //找到父对象，使其按x轴旋转</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-通过名字或标签获取游戏对象"><a href="#3-通过名字或标签获取游戏对象" class="headerlink" title="3.通过名字或标签获取游戏对象"></a>3.通过名字或标签获取游戏对象</h4><p>Find()方法与FindWithTag()方法</p>
+<p>创建三个游戏对象Capsule，Sphere，Cube，通过Sphere上的脚本访问Cube和Capsule，使其旋转</p>
+<p>​    创建对象——单击 GameObject → 3D Object → Capsule，<br>​    单击 GameObject → 3D Object → Sphere，<br>​    单击 GameObject → 3D Object → Cube，</p>
+<p>添加标签——单机Capsule，右边的属性面板里单机Tag一项，选择“Add Tag”，然后添加名“Cap”，然后返回Capsule属性面板，选择刚刚的标签</p>
+<p>编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为BNUFind</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUFind : MonoBehaviour&#123;</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        GameObject obj1 = GameObject.Find(&quot;Cube&quot;);	//获取名为“Cube”对象</span><br><span class="line">        obj1.transform.Rotate(1, 0, 0);</span><br><span class="line">        GameObject obj2 = GameObject.FindWithTag(&quot;Cap&quot;);	//获取名tag为“Cap”对象</span><br><span class="line">        obj2.transform.Rotate(1, 0, 0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="4、通过组件名称获取游戏对象"><a href="#4、通过组件名称获取游戏对象" class="headerlink" title="4、通过组件名称获取游戏对象"></a>4、通过组件名称获取游戏对象</h4><p>FindObjectsOfType()方法和FindObjectOfType()方法——第一个Object有“s”，第二个没有</p>
+<p>FindObjectsOfType可以获取所有挂载指定类型组件的游戏对象，</p>
+<p>FindObjectOfType可以获取指定类型组件的第一个游戏对象</p>
+<p>创建三个游戏对象Cylinder，Sphere，Cube，其中两个对象上挂载Test脚本，使用上面的方法获取游戏对象</p>
+<p>​    创建对象——单击 GameObject → 3D Object → Cylinder，Sphere，Cube</p>
+<p>​    编写脚本——单击 Asset → Create → C# Script 创建脚本，命名为BNUFindtype</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine;	</span><br><span class="line">using Sysing.Collections;</span><br><span class="line">public class BNUFindtype : MonoBehaviour&#123;</span><br><span class="line">    void State()</span><br><span class="line">    &#123;</span><br><span class="line">        Test test = FindObjectOfType&lt;Test&gt;();   //获取第一个“Tset”对象</span><br><span class="line">        Debug.Log(test.GameObject.name);    //打印名称</span><br><span class="line">        Test[] tests = FindObjectsOfType&lt;Test&gt;();   //获取搜友“Test”对象</span><br><span class="line">        foreach (Test te in tests)  //遍历所有对象</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(tests.GameObject.name);   //打印所有对象名称</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将Test挂载到任意两个对象上</p>
+<p>将BNUFindtype挂载到<strong>摄像机</strong>上</p>
+<h2 id="4、向量"><a href="#4、向量" class="headerlink" title="4、向量"></a>4、向量</h2><p>Unity中分Vector2类与Vector3类，分别使2D向量类与3D向量类</p>
+<p>其中Vector3类有定义一些常量——如：Vector3.up 等于Vector(0,1,0)</p>
+<p>Vector3类中有很多对向量进行操作的方法，如想要获取两点之间的聚类，可以使用Distance方法</p>
+<p>例子：</p>
+<p>创建一个Cube对象</p>
+<p>编写脚本BNUVec</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class BNUVec : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    public Vector3 position = new Vector3();</span><br><span class="line"></span><br><span class="line">    // Start is called before the first frame update</span><br><span class="line">    void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        position = Vector3.right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Update is called once per frame</span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        this.transform.Translate(position);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其他具体方法查看书（Unity3D游戏开发标准教程——吴亚峰，余复兴，索依娜 编著），P25</p>
+<h2 id="5、游戏中实例化对象"><a href="#5、游戏中实例化对象" class="headerlink" title="5、游戏中实例化对象"></a>5、游戏中实例化对象</h2><p>使用Instantiate(explosion, transform.position, randomRotation)方法</p>
+<p>数一：explosion是预设 参数二：transform.position 实例化预设的坐标  参数三：randomRotation 实例化预设的旋转角度</p>
+<p>例子</p>
+<p>创建脚本BNUIns，编写代码，让游戏开始运行时创建5个球体</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class BNUIns : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    public Transform prefab;	//定义共有对象</span><br><span class="line">    public void Awake()		</span><br><span class="line">    &#123;</span><br><span class="line">        int i = 0;</span><br><span class="line">        while (i &lt; 5)</span><br><span class="line">        &#123;</span><br><span class="line">            Instantiate(prefab, new Vector3(i * 0.2F, 0, 0), Quaternion.identity);	//实例化对象</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将BNUIns脚本挂载到摄像机中，再单击 GameObject → 3D Object → Sphere创建一个球体，将这个球体拖拽到摄像机脚本文件上的prefab项</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>爷很可爱，所以给我钱</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="猴子 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="猴子 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Unity3D/" rel="tag"># Unity3D</a>
+              <a href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag"># 知识</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/31/Unity3D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Unity-%E7%AC%AC%E4%B8%80%E7%AB%A0/" rel="prev" title="Unity_第一章">
+                  <i class="fa fa-chevron-left"></i> Unity_第一章
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/08/21/yolov3/yolov3%E8%AE%AD%E7%BB%83/" rel="next" title="yolov3训练">
+                  yolov3训练 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">猴子</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
